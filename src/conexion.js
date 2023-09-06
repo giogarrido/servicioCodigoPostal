@@ -1,11 +1,16 @@
 import {createPool} from "mysql2/promise"; // Importamos el metodo createPool de mysql2/promise
-import 'dotenv/config'; // Importamos el metodo config de dotenv
+import { 
+  DBHOST,
+  DBUSER,
+  DBPASSWORD,
+  DATABASE,
+} from '../config/config.js' // Importamos las variables de entorno de config.js
 
 export const pool = createPool({
-    connectionLimit: 10, // Limite de conexiones
-    host: process.env.DBHOST,  //env es un objeto que contiene todas las variables de entorno 'npm i dotenv'
-    user: process.env.DBUSER, 
-    password: process.env.DBPASSWORD ,
-    database: process.env.DATABASE,
-  });
+  connectionLimit: 10, // Limite de conexiones
+  host: DBHOST,
+  user: DBUSER,
+  password: DBPASSWORD,
+  database: DATABASE,
+});
 
